@@ -1,0 +1,55 @@
+#extend("admin/base")
+
+#export("title") { Post Admin | PixelarchyCMS }
+
+#export("content") {
+
+    <div class="post-header">
+        <h1>All News/Press Releases</h1>
+    </div>
+
+    <div class="post-sort-filter">Sort By:
+        <div class="dropdown-header post-sort-options" id="sort-dropdown">
+            <span class="dropdown-select">Newest</span>
+            <span class="dropdown-symbol"> #raw() {&#9663;}</span>
+            <ul class="dropdown-selection">
+                <li>Newest</li>
+                <li>Oldest</li>
+            </ul>
+        </div>
+        <div class="dropdown-header" id="status-dropdown">
+            <span class="dropdown-select">All Posts</span>
+            <span class="dropdown-symbol"> #raw() {&#9663;}</span>
+            <ul class="dropdown-selection">
+                <li>All Posts</li>
+                <li>Draft</li>
+                <li>Published</li>
+            </ul>
+        </div>
+        <div class="dropdown-header" id="tags-dropdown">
+            <span class="dropdown-select">All Tags</span>
+            <span class="dropdown-symbol"> #raw() {&#9663;}</span>
+            <ul class="dropdown-selection">
+                <li>All Posts</li>
+                <li>Draft</li>
+                <li>Published</li>
+            </ul>
+        </div>
+    </div>
+
+    #loop(postlist, "post") {
+    <div id="post-index-row">
+        <div class="post-col-left">
+            <div class="post-row-title">#(post.title)</div>
+            <div class="post-row-blurb">#raw(post.content)</div>
+            <div class="post-row-date-status">
+                <span class="post-span-date">#(post.postedon)</span>
+                <span class="post-span-status">Draft</span>
+            </div>
+        </div>
+        <div class="post-col-right">
+            <img src="trash.jpg">
+        </div>
+    </div>
+    }
+}

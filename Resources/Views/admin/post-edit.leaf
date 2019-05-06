@@ -1,0 +1,31 @@
+#extend("admin/base")
+
+#export("title") { Edit Post | PixelarchyCMS }
+
+#export("content") {
+
+    <div class="post-header">
+        <h1>Edit News/Press Release</h1>
+    </div>
+
+    <div id="edit-post-data" data-editing-page="true" data-published-post="#(post.published)" data-original-slug-url="#(post.slugurl)" data-original-title="#(post.title)"></div>
+
+    <form action="/admin/posts/#(post.id)/edited/" class="create-post-form" method="post">
+
+        <input type="text" class="post-title" name="title" placeholder="Title" value="#(post.title)" required>
+        <input type="text" class="post-date" id="datepicker" name="postedon" value="#(post.postedon)">
+        <textarea class="post-content" name="content" data-placeholder="Enter your news or press release...">#(post.content)</textarea>
+        <input type="text" class="post-tags" name="tags" placeholder="Enter tags..." value="#(post.tags)">
+        <input type="hidden" name="slugurl" value="#(post.slugurl)">
+
+        <div class="switch-field">
+            <input type="radio" id="switch-left" name="poststatus" value="false" #equal(post.poststatus, "False") {checked}>
+            <label for="switch-left">Draft</label>
+            <input type="radio" id="switch-right" name="poststatus" value="true" #equal(post.poststatus, "True") {checked}>
+            <label for="switch-right">Publish</label>
+        </div>
+
+        <button type="Submit" class="btn-save" id="save-post">Save Post</button>
+
+    </form>
+}

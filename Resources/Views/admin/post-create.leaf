@@ -1,0 +1,30 @@
+#extend("admin/base")
+
+#export("title") { Create Post | PixelarchyCMS }
+
+#export("content") {
+
+    <div class="post-header">
+        <h1>Create News/Press Release</h1>
+    </div>
+
+    <form action="/admin/posts/created/" class="create-post-form" method="post">
+
+        <input type="text" class="post-title" name="title" placeholder="Title" required>
+        <input type="text" class="post-date" id="datepicker" name="postedon">
+        <textarea maxlength="20" class="post-summary" name="summary" data-placeholder="Enter your summary (short snippet)..."></textarea>
+        <textarea class="post-content" name="content" data-placeholder="Enter your news or press release..."></textarea>
+        <input type="text" class="post-tags" name="tags" placeholder="Enter tags...">
+        <input type="hidden" name="slugurl" value="#(post.slugurl)">
+
+        <div class="switch-field">
+            <input type="radio" id="switch-left" name="poststatus" value="false" checked>
+            <label for="switch-left">Draft</label>
+            <input type="radio" id="switch-right" name="poststatus" value="true">
+            <label for="switch-right">Publish</label>
+        </div>
+
+        <button type="Submit" class="btn-save" id="save-post">Save Post</button>
+
+    </form>
+}
