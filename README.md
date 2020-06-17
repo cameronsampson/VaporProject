@@ -21,5 +21,8 @@
 
 =======
 # vapor-test-project
-Test project for setting frontend Vapor CMS
+Test project for setting frontend Vapor CMS based off of Vapor 2.0.
 
+This was developed an initial proof-of-concept to determine usage of Vapor as a backend API for a startup venture. 
+
+While incomplete, this proof-of-concept reveals the capabilities of CRUD under server-side-swift through a REST API.
